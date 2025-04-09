@@ -1,0 +1,415 @@
+/* Estilos Gerais (body, h1, etc.) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef1f5; /* Um cinza azulado suave */
+    margin: 0;
+    padding: 20px;
+    color: #333333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ff0077; /* Azul mais escuro */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  /* --- Seção de Seleção --- */
+  #selecao-veiculo {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Gradiente sutil */
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px #cacaca, -5px -5px 15px #ffffff; /* Efeito Neumorphism leve */
+    margin-bottom: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 700px; /* Ajuste conforme necessário */
+  }
+  
+  #selecao-veiculo h2 {
+    color: #d21994; /* Azul médio */
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+  
+  #selecao-veiculo button {
+    background-color: #dd63ff; /* Cinza azulado */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px; /* Ajuste o padding */
+    margin: 8px;
+    cursor: pointer;
+    font-size: 1em; /* Ajuste o tamanho da fonte */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  #selecao-veiculo button img {
+    height: 22px; /* Ajuste o tamanho */
+    width: auto;
+    filter: brightness(1.1); /* Deixa o ícone um pouco mais brilhante */
+  }
+  
+  
+  #selecao-veiculo button:hover {
+    background-color: #ff7ed4;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  #selecao-veiculo button:active {
+     transform: translateY(0px) scale(0.98);
+     box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  
+  /* Botão de esconder */
+  #esconder-todos-btn {
+    background-color: #f436bb; /* Vermelho */
+    margin-top: 15px; /* Espaço acima */
+  }
+  #esconder-todos-btn:hover {
+    background-color: #ff38de;
+  }
+  
+  
+  /* Layout da Garagem (onde os veículos aparecerão) */
+  .garagem {
+    display: flex; /* Usar flex para centralizar o card visível */
+    justify-content: center; /* Centraliza o card ativo */
+    align-items: flex-start; /* Alinha no topo */
+    width: 100%;
+    padding: 20px 0; /* Espaçamento vertical */
+  }
+  
+  /* --- MODIFICAÇÃO IMPORTANTE: Esconder Veículos Inicialmente --- */
+  .veiculo {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    width: 300px; /* Largura do card */
+    display: none; /* <--- ESCONDIDO POR PADRÃO */
+    flex-direction: column;
+    /* Animação de entrada */
+    animation: fadeInScale 0.5s ease-out forwards; /* 'forwards' mantém o estado final */
+    margin: 10px; /* Adiciona margem para evitar colar nas bordas */
+  }
+  
+  /* --- NOVA CLASSE: Para Mostrar o Veículo Selecionado --- */
+  .veiculo.visivel {
+    display: flex; /* <--- MOSTRAR (usando flex por causa do flex-direction: column) */
+  }
+  
+  /* Animação de Entrada */
+  @keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+  }
+  
+  
+  /* --- ESTILOS INTERNOS DO VEÍCULO (Mantenha os que você já tinha) --- */
+  
+  .veiculo h2 { /* Estilo específico para H2 dentro do card */
+     color: #ff00aa;
+     margin-bottom: 15px;
+     border-bottom: 2px solid #007bff;
+     padding-bottom: 5px;
+     font-size: 1.3em;
+     text-align: left; /* Alinha à esquerda dentro do card */
+  }
+  
+  .veiculo-img {
+    max-width: 150px; /* Ajuste o tamanho da imagem principal */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* Centraliza e adiciona espaço abaixo */
+    border-radius: 5px;
+  }
+  
+  p {
+    margin-bottom: 10px; /* Aumentar um pouco o espaço */
+    font-size: 0.95em;
+  }
+  
+  p span {
+    font-weight: bold;
+    color: #fd88c8; /* Cor do texto do span */
+    background-color: #f8f9fa; /* Fundo bem claro */
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    border: 1px solid #dee2e6; /* Borda sutil */
+    margin-left: 5px; /* Espaço à esquerda do span */
+  }
+  
+  /* Barra de Velocidade (mantenha seus estilos ou use estes) */
+  .velocidade-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  
+  .velocidade-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #66bb6a, #388e3c); /* Gradiente verde */
+    border-radius: 9px;
+    transition: width 0.3s ease-out, background-color 0.3s ease;
+    text-align: center;
+    color: white;
+    font-size: 0.8em;
+    line-height: 20px;
+  }
+  
+  .veiculo.turbo-active .velocidade-bar,
+  .veiculo.boost-active .velocidade-bar {
+  background: linear-gradient(to right, #ffa726, #f57c00); /* Gradiente laranja/amarelo */
+  }
+  
+  /* Controles (Botões internos - mantenha os seus ou use estes) */
+  .controles {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: grid; /* Usar grid para melhor alinhamento */
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 10px;
+  }
+  
+  .controles button {
+    background-color: #17a2b8; /* Azul claro (info) */
+    color: #fff;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+  }
+  
+  .controles button:hover {
+    background-color: #117a8b;
+    transform: scale(1.03);
+  }
+  
+  .controles button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+  }
+  
+  /* Botão Turbo/Boost Específico (pode precisar ajustar a coluna no grid) */
+  .turbo-btn {
+    background-color: #ffc107; /* Amarelo */
+    color: #ff1515;
+    grid-column: span 2; /* Faz o botão turbo ocupar as duas colunas */
+  }
+  .turbo-btn:hover {
+    background-color: #e0a800;
+  }
+  .turbo-btn.active {
+     background-color: #dc3545; /* Vermelho quando ativo */
+     color: #fff;
+  }
+  .turbo-btn.active:hover {
+     background-color: #c82333;
+  }
+
+
+  /* Reset básico e fontes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Layout Principal com Flexbox */
+.app-container {
+    display: flex;
+    min-height: 100vh; /* Ocupa a altura toda da tela */
+}
+
+/* Barra Lateral (Sidebar) */
+.sidebar {
+    width: 220px; /* Largura fixa */
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    flex-shrink: 0; /* Não encolhe */
+}
+
+.sidebar h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar .nav-button {
+    background: none;
+    border: none;
+    color: #eee;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-button:hover {
+    background-color: #555;
+}
+
+.sidebar .nav-button.active {
+    background-color: #007bff; /* Cor de destaque para botão ativo */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Área de Conteúdo Principal */
+.content-area {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    padding: 30px;
+    background-color: #fff;
+}
+
+.content-area h2 {
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+/* Esconder seções inativas */
+.content-section {
+    display: none; /* Escondido por padrão */
+}
+
+/* Mostrar seção ativa */
+.content-section.active {
+    display: block; /* Mostra a seção com a classe 'active' */
+}
+
+/* Estilos básicos para formulários (Adapte conforme seu CSS anterior) */
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para a área de feedback */
+.feedback {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.feedback-success {
+    background-color: #d4edda; /* Verde */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.feedback-error {
+    background-color: #f8d7da; /* Vermelho */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.feedback-info {
+    background-color: #cce5ff; /* Azul */
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+/* Estilos básicos para tabelas (Adapte se usar) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

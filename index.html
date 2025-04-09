@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Inteligente - IFPR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Garagem da Barbie</h1>
+
+    <!-- NOVA SEÇÃO PARA SELEÇÃO -->
+    <div id="selecao-veiculo">
+        <h2>Escolha um Veículo:</h2>
+        <button data-target-id="veiculo-caminhao">
+            <img src="imagens/mnhaorosa.webp" alt=""> Caminhão
+        </button>
+        <button data-target-id="veiculo-carro">
+            <img src="imagens/fusca.png" alt=""> Carro
+        </button>
+        <button data-target-id="veiculo-esportivo">
+            <img src="img/rosaesport.png" alt=""> Carro Esportivo
+        </button>
+        <button data-target-id="veiculo-moto">
+            <img src="img/motoca.jpg" alt=""> Motocicleta
+        </button>
+         <!-- Botão para esconder todos -->
+         <button id="esconder-todos-btn" class="hide-button">Esconder Veículo</button>
+    </div>
+
+    <!-- GARAGEM (com veículos inicialmente ocultos) -->
+    <div class="garagem">
+
+        <!-- Caminhão (código HTML como você enviou) -->
+        <div class="veiculo" id="veiculo-caminhao">
+           <!-- ... seu código do caminhão aqui ... -->
+            <h2>Caminhão</h2>
+            <img src="imagens/mnhaorosa.webp" alt="Ícone de Caminhão" class="veiculo-img">
+            <p>Modelo: <span id="caminhao-modelo">Scania R450</span></p>
+            <p>Cor: <span id="caminhao-cor">Azul</span></p>
+            <p>Ligado: <span id="caminhao-ligado">Não</span></p>
+            <p>Velocidade: <span id="caminhao-velocidade">0</span> km/h</p>
+            <div class="velocidade-bar-container">
+                <div id="caminhao-velocidade-bar" class="velocidade-bar"></div>
+            </div>
+            <p>Carga Máx.: <span id="caminhao-carga-max">20000</span> kg</p>
+            <p>Carga Atual: <span id="caminhao-carga-atual">0</span> kg</p>
+            <div class="controles">
+                <button id="caminhao-ligar-btn">Ligar</button>
+                <button id="caminhao-desligar-btn">Desligar</button>
+                <button id="caminhao-acelerar-btn">Acelerar</button>
+                <button id="caminhao-frear-btn">Frear</button>
+            </div>
+        </div>
+
+        <!-- Carro (código HTML como você enviou) -->
+        <div class="veiculo" id="veiculo-carro">
+             <!-- ... seu código do carro aqui ... -->
+             <h2>Carro</h2>
+            <img src="imagens/fusca.png" alt="Ícone de Carro" class="veiculo-img">
+            <p>Modelo: <span id="carro-modelo">Onix</span></p>
+            <p>Cor: <span id="carro-cor">Prata</span></p>
+            <p>Ligado: <span id="carro-ligado">Não</span></p>
+            <p>Velocidade: <span id="carro-velocidade">0</span> km/h</p>
+            <div class="velocidade-bar-container">
+                <div id="carro-velocidade-bar" class="velocidade-bar"></div>
+            </div>
+            <div class="controles">
+                <button id="carro-ligar-btn">Ligar</button>
+                <button id="carro-desligar-btn">Desligar</button>
+                <button id="carro-acelerar-btn">Acelerar</button>
+                <button id="carro-frear-btn">Frear</button>
+            </div>
+        </div>
+
+        <!-- Carro Esportivo (código HTML como você enviou) -->
+        <div class="veiculo" id="veiculo-esportivo">
+             <!-- ... seu código do esportivo aqui ... -->
+            <h2>Carro Esportivo</h2>
+            <img src="imagens/rosaesport.png" alt="Ícone de Carro Esportivo" class="veiculo-img">
+            <p>Modelo: <span id="esportivo-modelo">Ferrari 488</span></p>
+            <p>Cor: <span id="esportivo-cor">Vermelha</span></p>
+            <p>Ligado: <span id="esportivo-ligado">Não</span></p>
+            <p>Velocidade: <span id="esportivo-velocidade">0</span> km/h</p>
+            <div class="velocidade-bar-container">
+                <div id="esportivo-velocidade-bar" class="velocidade-bar"></div>
+            </div>
+            <p>Turbo: <span id="esportivo-turbo">Inativo</span></p>
+            <div class="controles">
+                <button id="esportivo-ligar-btn">Ligar</button>
+                <button id="esportivo-desligar-btn">Desligar</button>
+                <button id="esportivo-acelerar-btn">Acelerar</button>
+                <button id="esportivo-frear-btn">Frear</button>
+                <button id="esportivo-turbo-btn" class="turbo-btn">Ativar Turbo</button>
+            </div>
+        </div>
+
+        <!-- Motocicleta (código HTML como você enviou) -->
+        <div class="veiculo" id="veiculo-moto">
+             <!-- ... seu código da moto aqui ... -->
+            <h2>Motocicleta</h2>
+            <img src="imagens/motoca.jpg" alt="Ícone de Motocicleta" class="veiculo-img">
+            <p>Modelo: <span id="moto-modelo">CB 500</span></p>
+            <p>Cor: <span id="moto-cor">Preta</span></p>
+            <p>Ligado: <span id="moto-ligado">Não</span></p>
+            <p>Velocidade: <span id="moto-velocidade">0</span> km/h</p>
+            <div class="velocidade-bar-container">
+                <div id="moto-velocidade-bar" class="velocidade-bar"></div>
+            </div>
+             <p>Boost: <span id="moto-boost">Inativo</span></p> <!-- Renomeei para Boost -->
+            <div class="controles">
+                <button id="moto-ligar-btn">Ligar</button>
+                <button id="moto-desligar-btn">Desligar</button>
+                <button id="moto-acelerar-btn">Acelerar</button>
+                <button id="moto-frear-btn">Frear</button>
+                <button id="moto-boost-btn" class="turbo-btn">Ativar Boost</button>
+            </div>
+        </div>
+
+    </div> <!-- Fim .garagem -->
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Inteligente Unificada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navegação Lateral (Exemplo) -->
+        <nav class="sidebar">
+            <h1>Garagem Uni</h1>
+            <ul>
+                <li><button class="nav-button active" data-target="secao-garagem">Minha Garagem</button></li>
+                <li><button class="nav-button" data-target="secao-add-veiculo">Adicionar Veículo</button></li>
+                <li><button class="nav-button" data-target="secao-historico">Histórico Manutenção</button></li>
+                <li><button class="nav-button" data-target="secao-agendamento">Agendar Manutenção</button></li>
+            </ul>
+        </nav>
+
+        <!-- Área de Conteúdo Principal -->
+        <main class="content-area">
+            <!-- Mensagens de Feedback/Erro -->
+            <div id="feedback-message" class="feedback" style="display: none;"></div>
+
+            <!-- Seção: Minha Garagem -->
+            <section id="secao-garagem" class="content-section active">
+                <h2>Minha Garagem</h2>
+                <div id="lista-veiculos">
+                    <!-- **SEU CÓDIGO ANTERIOR PARA MOSTRAR A LISTA/TABELA DE VEÍCULOS VAI AQUI** -->
+                    <!-- Exemplo: <p>Carregando veículos...</p> -->
+                </div>
+            </section>
+
+            <!-- Seção: Adicionar Veículo -->
+            <section id="secao-add-veiculo" class="content-section">
+                <h2>Adicionar Novo Veículo</h2>
+                <!-- **SEU FORMULÁRIO HTML ANTERIOR PARA ADICIONAR VEÍCULO VAI AQUI** -->
+                <!-- Exemplo de Estrutura: -->
+                <form id="form-add-veiculo">
+                    <div>
+                        <label for="add-placa">Placa:</label>
+                        <input type="text" id="add-placa" required>
+                    </div>
+                    <div>
+                        <label for="add-modelo">Modelo:</label>
+                        <input type="text" id="add-modelo" required>
+                    </div>
+                    <div>
+                        <label for="add-marca">Marca:</label>
+                        <input type="text" id="add-marca">
+                    </div>
+                    <div>
+                        <label for="add-ano">Ano:</label>
+                        <input type="number" id="add-ano">
+                    </div>
+                    <button type="submit">Adicionar Veículo</button>
+                </form>
+            </section>
+
+            <!-- Seção: Histórico de Manutenção -->
+            <section id="secao-historico" class="content-section">
+                <h2>Histórico de Manutenção</h2>
+                <div>
+                    <label for="select-veiculo-historico">Selecione o Veículo:</label>
+                    <select id="select-veiculo-historico">
+                        <!-- Opções serão preenchidas pelo JavaScript -->
+                        <option value="">-- Selecione --</option>
+                    </select>
+                </div>
+                <div id="historico-detalhes">
+                    <!-- **SEU CÓDIGO ANTERIOR PARA MOSTRAR O HISTÓRICO DO VEÍCULO SELECIONADO VAI AQUI** -->
+                    <!-- Exemplo: <p>Selecione um veículo para ver o histórico.</p> -->
+                </div>
+            </section>
+
+            <!-- Seção: Agendar Manutenção -->
+            <section id="secao-agendamento" class="content-section">
+                <h2>Agendar Nova Manutenção</h2>
+                <!-- **SEU FORMULÁRIO HTML ANTERIOR PARA AGENDAR MANUTENÇÃO VAI AQUI** -->
+                <!-- Exemplo de Estrutura: -->
+                 <form id="form-agendamento">
+                     <div>
+                         <label for="select-veiculo-agendar">Veículo:</label>
+                         <select id="select-veiculo-agendar" required>
+                             <option value="">-- Selecione --</option>
+                             <!-- Opções preenchidas via JS -->
+                         </select>
+                     </div>
+                    <div>
+                        <label for="agenda-data">Data:</label>
+                        <input type="date" id="agenda-data" required>
+                    </div>
+                    <div>
+                        <label for="agenda-descricao">Descrição Serviço:</label>
+                        <textarea id="agenda-descricao" required></textarea>
+                    </div>
+                     <button type="submit">Agendar</button>
+                 </form>
+                 <div id="lista-agendamentos">
+                     <h3>Próximos Agendamentos</h3>
+                     <!-- **SEU CÓDIGO PARA MOSTRAR AGENDAMENTOS PENDENTES VAI AQUI** -->
+                 </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
